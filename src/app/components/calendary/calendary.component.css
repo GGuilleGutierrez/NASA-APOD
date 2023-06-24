@@ -1,0 +1,13 @@
+.formmobile {
+    display: none;
+}
+
+@media (width < 450px) {
+    .formmobile {
+        display: flex;
+    }
+
+    .formdesk {
+        display: none;
+    }
+}

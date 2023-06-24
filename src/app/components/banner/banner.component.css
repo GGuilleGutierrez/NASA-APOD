@@ -1,0 +1,54 @@
+.infomobile {
+    background-image: url("../../../assets/galaxy.gif");
+    background-size: cover;
+    display: none;
+}
+
+.carousel {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background-image: url("../../../assets/galaxy.gif");
+    background-size: cover;
+}
+
+.carousel-slide {
+    display: flex;
+    width: 410%;
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-item {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.carousel-controls {
+    top: 50%;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    padding: 0px 50px;
+    justify-content: space-between;
+}
+
+.carousel-controls button {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@media (width < 740px) {
+    .carousel {
+        display: none;
+    }
+
+    .infomobile {
+        display: flex;
+    }
+}

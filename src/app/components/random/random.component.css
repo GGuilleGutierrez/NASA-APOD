@@ -1,0 +1,17 @@
+mat-slider {
+    margin: 20px;
+}
+
+.formmobile {
+    display: none;
+}
+
+@media (width < 480px) {
+    .formdesk {
+        display: none;
+    }
+
+    .formmobile {
+        display: flex;
+    }
+}

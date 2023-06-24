@@ -1,0 +1,94 @@
+<div class="carousel">
+    <div class="carousel-slide" [ngStyle]="{'transform': 'translateX(' + slideOffset + ')'}">
+        <div class="carousel-item" id="item1">
+            <div
+                class="border-4 border-white-400  lg:border-gray-400 bg-violet-400 bg-opacity-60 rounded-b lg:rounded-b-none lg:rounded-r p-4 w-8/12 h-4/6 flex flex-col items-center justify-center">
+                <div class="title font-bold text-xxl my-30">EXPLORA EL COSMOS CON NASA APOD</div>
+                <p class="text my-5 text-xl">La NASA APOD (Imagen Astronómica del Día) es un servicio en línea ofrecido
+                    por la NASA que presenta diariamente una imagen o fotografía astronómica fascinante, acompañada de
+                    una breve descripción escrita por un astrónomo profesional. Esta plataforma ofrece una visión
+                    cotidiana del universo, mostrando imágenes de galaxias lejanas, nebulosas coloridas, planetas
+                    sorprendentes y otros objetos celestes, brindando así una ventana al vasto y maravilloso cosmos.</p>
+            </div>
+        </div>
+        <div class="carousel-item" id="item2">
+            <div
+                class="border-4 border-white-400  lg:border-gray-400 bg-violet-400 bg-opacity-60 rounded-b lg:rounded-b-none lg:rounded-r p-4 w-8/12 h-4/6 flex flex-col items-center justify-center">
+                <div class="font-bold text-xxl my-30">PROPÓSITO</div>
+                <p class="my-5 text-xl">El objetivo principal de la NASA APOD es difundir el conocimiento astronómico de
+                    manera accesible. Cada día, la APOD presenta una nueva imagen cuidadosamente seleccionada, buscando
+                    fomentar la apreciación y el interés por la astronomía en el público general, así como inspirar a
+                    futuros científicos y exploradores espaciales.</p>
+            </div>
+        </div>
+        <div class="carousel-item" id="item3">
+            <div
+                class="border-4 border-white-400  lg:border-gray-400 bg-violet-400 bg-opacity-60 rounded-b lg:rounded-b-none lg:rounded-r p-4 w-8/12 h-4/6 flex flex-col items-center justify-center">
+                <div class="font-bold text-xxl my-30">CONTENIDO Y TEMÁTICAS CUBIERTAS</div>
+                <p class="my-5 text-xl">La NASA APOD aborda una amplia variedad de temas relacionados con la astronomía.
+                    Desde imágenes deslumbrantes de galaxias distantes hasta fotografías impactantes de nuestro propio
+                    sistema solar, la APOD cubre una gama diversa de fenómenos celestes y descubrimientos científicos.
+                    Entre los temas tratados se incluyen estrellas, planetas, lunas, nebulosas, agujeros negros, eventos
+                    astronómicos, misiones espaciales y mucho más.</p>
+            </div>
+        </div>
+        <div class="carousel-item" id="item4">
+            <div
+                class="border-4 border-white-400  lg:border-gray-400 bg-violet-400 bg-opacity-60 rounded-b lg:rounded-b-none lg:rounded-r p-4 w-8/12 h-4/6 flex flex-col items-center justify-center">
+                <div class="font-bold text-xxl my-30">ACCESO</div>
+                <p class="my-5 text-xl">La NASA APOD está disponible de forma gratuita para todo el público. Puedes
+                    acceder a ella a través del sitio web oficial de la NASA (apod.nasa.gov), donde se publican las
+                    imágenes diarias junto con sus descripciones correspondientes. También puedes seguir la APOD en
+                    redes sociales como Twitter y Facebook para recibir las actualizaciones diarias y compartir las
+                    fascinantes imágenes con amigos y seguidores.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="carousel-controls">
+        <button
+            class="prev-button hover:bg-violet-400 hover:bg-opacity-60 font-semibold py-2 px-4 border border-black-500  rounded"
+            (click)="prevSlide()">&#8249;</button>
+        <button
+            class="next-button hover:bg-violet-400 hover:bg-opacity-60 font-semibold py-2 px-4 border border-black-500  rounded"
+            (click)="nextSlide()">&#8250;</button>
+    </div>
+</div>
+
+<div class="infomobile flex flex-col">
+    <div
+        class="border-4 border-white-400  lg:border-gray-400 bg-violet-400 bg-opacity-60 rounded-b lg:rounded-b-none lg:rounded-r m-1 p-4 flex flex-col items-center justify-center">
+        <div class="font-bold text-xl my-30">EXPLORA EL COSMOS CON NASA APOD</div>
+        <p class="my-5 text-l">La NASA APOD (Imagen Astronómica del Día) es un servicio en línea ofrecido por la NASA
+            que presenta diariamente una imagen o fotografía astronómica fascinante, acompañada de una breve descripción
+            escrita por un astrónomo profesional. Esta plataforma ofrece una visión cotidiana del universo, mostrando
+            imágenes de galaxias lejanas, nebulosas coloridas, planetas sorprendentes y otros objetos celestes,
+            brindando así una ventana al vasto y maravilloso cosmos.</p>
+    </div>
+    <div
+        class="border-4 border-white-400  lg:border-gray-400 bg-violet-400 bg-opacity-60 rounded-b lg:rounded-b-none lg:rounded-r m-1 p-4 flex flex-col items-center justify-center">
+        <div class="font-bold text-xl my-30">PROPÓSITO</div>
+        <p class="my-5 text-l">El objetivo principal de la NASA APOD es difundir el conocimiento astronómico de manera
+            accesible. Cada día, la APOD presenta una nueva imagen cuidadosamente seleccionada, buscando fomentar la
+            apreciación y el interés por la astronomía en el público general, así como inspirar a futuros científicos y
+            exploradores espaciales.</p>
+    </div>
+    <div
+        class="border-4 border-white-400  lg:border-gray-400 bg-violet-400 bg-opacity-60 rounded-b lg:rounded-b-none lg:rounded-r m-1 p-4 flex flex-col items-center justify-center">
+        <div class="font-bold text-xl my-30">CONTENIDO Y TEMÁTICAS CUBIERTAS</div>
+        <p class="my-5 text-l">La NASA APOD aborda una amplia variedad de temas relacionados con la astronomía. Desde
+            imágenes deslumbrantes de galaxias distantes hasta fotografías impactantes de nuestro propio sistema solar,
+            la APOD cubre una gama diversa de fenómenos celestes y descubrimientos científicos. Entre los temas tratados
+            se incluyen estrellas, planetas, lunas, nebulosas, agujeros negros, eventos astronómicos, misiones
+            espaciales y mucho más.</p>
+    </div>
+    <div
+        class="border-4 border-white-400  lg:border-gray-400 bg-violet-400 bg-opacity-60 rounded-b lg:rounded-b-none lg:rounded-r m-1 p-4 flex flex-col items-center justify-center">
+        <div class="font-bold text-xl my-30">ACCESO</div>
+        <p class="my-5 text-l">La NASA APOD está disponible de forma gratuita para todo el público. Puedes acceder a
+            ella a través del sitio web oficial de la NASA (apod.nasa.gov), donde se publican las imágenes diarias junto
+            con sus descripciones correspondientes. También puedes seguir la APOD en redes sociales como Twitter y
+            Facebook para recibir las actualizaciones diarias y compartir las fascinantes imágenes con amigos y
+            seguidores.</p>
+    </div>
+</div>
