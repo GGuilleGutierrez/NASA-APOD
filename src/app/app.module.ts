@@ -7,7 +7,7 @@ import { ApodComponent } from './components/apod/apod.component';
 import { RandomComponent } from './components/random/random.component';
 import { CalendaryComponent } from './components/calendary/calendary.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material.module';
 
@@ -23,6 +23,7 @@ import { MaterialModule } from './material.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     NoopAnimationsModule,
     HttpClientModule,
     MaterialModule
