@@ -20,13 +20,17 @@ export class RandomComponent {
   constructor(private service: ServiceService, private formBuilder: FormBuilder) { }
 
   data!: any;
-
+  ok: boolean = true;
   count!: number;
 
   generateImages() {
     this.count = this.formRandom.value.count;
-    this.service.getApod(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&count=${this.count}`).subscribe(res => {
-      this.data = res;
+    this.service.getApod(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&count=${this.count}`).subscribe({
+      next: (res) => {
+        this.data = res;
+      }, error: () => {
+        this.ok = false;
+      }
     })
   }
 }

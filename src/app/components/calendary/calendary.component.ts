@@ -21,7 +21,7 @@ export class CalendaryComponent {
 
   constructor(private service: ServiceService, private formBuilder: FormBuilder) { }
 
-  data!: any[];
+  data: any = [];
 
   count!: number;
 
@@ -29,14 +29,20 @@ export class CalendaryComponent {
   month!: number;
   day!: number;
 
+  ok: boolean = true;
+
   generateImage() {
     this.year = this.formCalendary.value.year;
     this.month = this.formCalendary.value.month;
     this.day = this.formCalendary.value.day;
-    this.service.getApod(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${this.year}-${this.month}-${this.day}`).subscribe(res => {
-      this.data.push(res);
-      this.addData();
-      // this.verifyMediaType();
+    this.service.getApod(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${this.year}-${this.month}-${this.day}`).subscribe({
+      next: (res) => {
+        this.data.push(res);
+        this.addData();
+        // this.verifyMediaType();
+      }, error: () => {
+        this.ok = false;
+      }
     })
   }
 

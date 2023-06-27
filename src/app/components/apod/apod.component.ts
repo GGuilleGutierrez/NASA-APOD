@@ -16,12 +16,17 @@ export class ApodComponent {
   constructor(private service: ServiceService) { }
 
   data: any = [];
+  ok: boolean = true;
 
   apod() {
-    return this.service.getApod("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY").subscribe(res => {
-      this.data.push(res);
-      this.addData();
-      this.verifyMediaType();
+    return this.service.getApod("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY").subscribe({
+      next: (res) => {
+        this.data.push(res);
+        this.addData();
+        this.verifyMediaType();
+      }, error: () => {
+        this.ok = false;
+      }
     })
   }
 

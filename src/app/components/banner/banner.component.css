@@ -43,6 +43,10 @@
     cursor: pointer;
 }
 
+.animated-div {
+    transition: opacity 2500ms ease-in, transform 2000ms ease-in;
+}
+
 @media (width < 740px) {
     .carousel {
         display: none;
