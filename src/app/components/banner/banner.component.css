@@ -44,7 +44,7 @@
 }
 
 .animated-div {
-    transition: opacity 2500ms ease-in, transform 2000ms ease-in;
+    transition: opacity 1500ms ease-in, transform 1500ms ease-in;
 }
 
 @media (width < 740px) {

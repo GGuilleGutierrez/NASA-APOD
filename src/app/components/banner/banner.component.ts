@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 
@@ -8,7 +8,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   styleUrls: ['./banner.component.css'],
   animations: [
     trigger('divAnimation', [
-      state('hidden', style({ opacity: 0, transform: 'translateX(-100%)' })),
+      state('hidden', style({ opacity: -1, transform: 'translateX(-100%)' })),
       state('hidden2', style({ opacity: 0, transform: 'translateX(100%)' })),
       state('visible', style({ opacity: 1, transform: 'translateX(0)' })),
       transition('hidden => visible', animate('500ms ease-in')),
@@ -50,11 +50,12 @@ export class BannerComponent {
   div3 = { state: 'hidden' };
   div4 = { state: 'hidden2' };
 
+  @HostListener('window:scroll', [])
   onScroll() {
     const rect = document.documentElement.getBoundingClientRect();
     const scrollPosition = window.innerHeight + window.pageYOffset;
 
-    if (scrollPosition > rect.height * 0.8) {
+    if (scrollPosition > rect.height) {
       this.div1.state = 'visible';
     }
 
