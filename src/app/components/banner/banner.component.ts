@@ -1,7 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
-
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
@@ -11,16 +10,17 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       state('hidden', style({ opacity: -1, transform: 'translateX(-100%)' })),
       state('hidden2', style({ opacity: 0, transform: 'translateX(100%)' })),
       state('visible', style({ opacity: 1, transform: 'translateX(0)' })),
-      transition('hidden => visible', animate('500ms ease-in')),
+      transition('hidden => visible', animate('500ms ease-in-out')),
       transition('hidden2 => visible', animate('500ms ease-in'))
     ]),
   ],
 })
 export class BannerComponent {
+
+  isVisible = false;
+
   slideOffset = '0';
 
-  ngOnInit(): void {
-  }
 
   prevSlide(): void {
     const slideWidth = window.innerWidth;
@@ -45,6 +45,9 @@ export class BannerComponent {
     }
   }
 
+  ngOnInit(): void {
+  }
+
   div1 = { state: 'hidden' };
   div2 = { state: 'hidden2' };
   div3 = { state: 'hidden' };
@@ -52,6 +55,7 @@ export class BannerComponent {
 
   @HostListener('window:scroll', [])
   onScroll() {
+
     const rect = document.documentElement.getBoundingClientRect();
     const scrollPosition = window.innerHeight + window.pageYOffset;
 
