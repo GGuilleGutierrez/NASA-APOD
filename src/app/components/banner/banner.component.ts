@@ -59,7 +59,7 @@ export class BannerComponent {
       this.div2.state = 'visible';
     }
 
-    if (scrollPosition > rect.height * 1.5) {
+    if (scrollPosition > rect.height * 1.3) {
       this.div3.state = 'visible';
       this.div4.state = 'visible';
     }
