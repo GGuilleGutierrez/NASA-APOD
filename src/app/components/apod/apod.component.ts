@@ -13,7 +13,7 @@ export class ApodComponent {
     this.apod();
   }
 
-  constructor(private service: ServiceService) { }
+  constructor(private service: ServiceService){}
 
   data: any = [];
   ok: boolean = true;
@@ -64,4 +64,14 @@ export class ApodComponent {
   //     link.click();
   //     window.URL.revokeObjectURL(urlImagen);
   //   }
+
+  translate: boolean = false;
+  translatedText!: string;
+
+  translateExplanation(textToTranslate: string) {
+    this.translate = true;
+    this.service.translateText(textToTranslate).subscribe((res: any) => {
+      this.translatedText = res.data.translations[0].translatedText;
+  })
+  }
 }

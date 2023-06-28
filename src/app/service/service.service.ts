@@ -12,4 +12,13 @@ export class ServiceService {
     return this.http.get(api);
   }
 
+  translateText(textToTranslate: string) {
+    const targetLanguage = 'es';
+    const url = "https://translation.googleapis.com/language/translate/v2?key=AIzaSyBTB6tFVKO9aDBvhE76tBovzhijDkqS5eY";
+    const body = {
+      q: textToTranslate,
+      target: targetLanguage
+    };
+    return this.http.post(url, body)
+  }
 }
