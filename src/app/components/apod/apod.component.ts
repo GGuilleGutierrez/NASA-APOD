@@ -9,9 +9,9 @@ import { ServiceService } from 'src/app/service/service.service';
 
 export class ApodComponent {
 
-  // ngOnInit(): void {
-  //   this.apod();
-  // }
+  ngOnInit(): void {
+    this.apod();
+  }
 
   constructor(private service: ServiceService) { }
 
