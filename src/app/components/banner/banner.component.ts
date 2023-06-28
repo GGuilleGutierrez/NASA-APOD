@@ -54,12 +54,12 @@ export class BannerComponent {
     const rect = document.documentElement.getBoundingClientRect();
     const scrollPosition = window.innerHeight + window.pageYOffset;
 
-    if (scrollPosition > window.innerHeight) {
+    if (scrollPosition > rect.height * 0.1) {
       this.div1.state = 'visible';
       this.div2.state = 'visible';
     }
 
-    if (scrollPosition > rect.height * 1.7) {
+    if (scrollPosition > rect.height * 0.9) {
       this.div3.state = 'visible';
       this.div4.state = 'visible';
     }
