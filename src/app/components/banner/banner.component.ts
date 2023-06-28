@@ -7,20 +7,16 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   styleUrls: ['./banner.component.css'],
   animations: [
     trigger('divAnimation', [
-      state('hidden', style({ opacity: -1, transform: 'translateX(-100%)' })),
-      state('hidden2', style({ opacity: 0, transform: 'translateX(100%)' })),
+      state('hidden', style({ opacity: 0, transform: 'translateX(100%)' })),
+      state('hidden2', style({ opacity: 0, transform: 'translateX(-100%)' })),
       state('visible', style({ opacity: 1, transform: 'translateX(0)' })),
-      transition('hidden => visible', animate('500ms ease-in-out')),
-      transition('hidden2 => visible', animate('500ms ease-in'))
+      transition('hidden => visible', animate('1000ms ease-in-out')),
+      transition('hidden2 => visible', animate('1000ms ease-in-out'))
     ]),
   ],
 })
 export class BannerComponent {
-
-  isVisible = false;
-
   slideOffset = '0';
-
 
   prevSlide(): void {
     const slideWidth = window.innerWidth;
@@ -55,23 +51,16 @@ export class BannerComponent {
 
   @HostListener('window:scroll', [])
   onScroll() {
-
     const rect = document.documentElement.getBoundingClientRect();
     const scrollPosition = window.innerHeight + window.pageYOffset;
 
-    if (scrollPosition > rect.height) {
+    if (scrollPosition > window.innerHeight) {
       this.div1.state = 'visible';
-    }
-
-    if (scrollPosition > rect.height * 0.5 ) {
       this.div2.state = 'visible';
     }
 
-    if (scrollPosition > rect.height * 0.5 * 2) {
+    if (scrollPosition > rect.height * 1.7) {
       this.div3.state = 'visible';
-    }
-
-    if (scrollPosition > rect.height * 0.5 * 3) {
       this.div4.state = 'visible';
     }
   }
