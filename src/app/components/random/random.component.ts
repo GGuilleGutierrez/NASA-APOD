@@ -10,37 +10,39 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RandomComponent {
 
   formRandom!: FormGroup;
+  data!: any;
+  ok: boolean = true;
+  count!: number;
+  translate: boolean = false;
+
+  constructor(private service: ServiceService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.formRandom = this.formBuilder.group({
       count: ["", Validators.required]
-    })
+    });
   }
-
-  constructor(private service: ServiceService, private formBuilder: FormBuilder) { }
-
-  data!: any;
-  ok: boolean = true;
-  count!: number;
 
   generateImages() {
     this.count = this.formRandom.value.count;
     this.service.getApod(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&count=${this.count}`).subscribe({
       next: (res) => {
         this.data = res;
-      }, error: () => {
+      },
+      error: () => {
         this.ok = false;
       }
-    })
+    });
   }
 
-  translate: boolean = false;
-  translatedText!: string;
-
   translateExplanation(textToTranslate: string) {
-    this.translate = true;
     this.service.translateText(textToTranslate).subscribe((res: any) => {
-      this.translatedText = res.data.translations[0].translatedText;
-  })
+      const translatedText = res.data.translations[0].translatedText;
+      this.data.forEach((image: any) => {
+        if (image.explanation === textToTranslate) {
+          image.explanation = translatedText;
+        }
+      });
+    });
   }
 }
