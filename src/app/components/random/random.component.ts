@@ -36,13 +36,18 @@ export class RandomComponent {
   }
 
   translateExplanation(textToTranslate: string) {
-    this.service.translateText(textToTranslate).subscribe((res: any) => {
-      const translatedText = res.data.translations[0].translatedText;
-      this.data.forEach((image: any) => {
-        if (image.explanation === textToTranslate) {
-          image.explanation = translatedText;
-        }
+    if(!this.translate){
+      this.translate = true;
+      this.service.translateText(textToTranslate).subscribe((res: any) => {
+        const translatedText = res.data.translations[0].translatedText;
+        this.data.forEach((image: any) => {
+          if (image.explanation === textToTranslate) {
+            image.explanation = translatedText;
+          }
+        });
       });
-    });
+    } else {
+      this.translate = false;
+    }
   }
 }

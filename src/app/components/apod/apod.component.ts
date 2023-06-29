@@ -69,9 +69,13 @@ export class ApodComponent {
   translatedText!: string;
 
   translateExplanation(textToTranslate: string) {
-    this.translate = true;
-    this.service.translateText(textToTranslate).subscribe((res: any) => {
+    if(!this.translate){
+      this.translate = true;
+      this.service.translateText(textToTranslate).subscribe((res: any) => {
       this.translatedText = res.data.translations[0].translatedText;
-  })
-  }
+    }) 
+    }else {
+      this.translate = false;
+      }
+    }
 }
