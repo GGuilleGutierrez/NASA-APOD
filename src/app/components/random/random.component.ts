@@ -36,18 +36,28 @@ export class RandomComponent {
   }
 
   translateExplanation(textToTranslate: string) {
-    if(!this.translate){
-      this.translate = true;
-      this.service.translateText(textToTranslate).subscribe((res: any) => {
+    if (this.translate) {
+      const targetLanguage = 'en';
+      this.service.translateText(textToTranslate, targetLanguage).subscribe((res: any) => {
         const translatedText = res.data.translations[0].translatedText;
-        this.data.forEach((image: any) => {
-          if (image.explanation === textToTranslate) {
-            image.explanation = translatedText;
+        this.data.forEach((imagen: any) => {
+          if (imagen.explanation === textToTranslate) {
+            imagen.explanation = translatedText;
           }
         });
+        this.translate = false;
       });
     } else {
-      this.translate = false;
+      const targetLanguage = 'es';
+      this.service.translateText(textToTranslate, targetLanguage).subscribe((res: any) => {
+        const translatedText = res.data.translations[0].translatedText;
+        this.data.forEach((imagen: any) => {
+          if (imagen.explanation === textToTranslate) {
+            imagen.explanation = translatedText;
+          }
+        });
+        this.translate = true;
+      });
     }
   }
 }

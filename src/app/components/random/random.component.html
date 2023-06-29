@@ -32,10 +32,10 @@
                     en otra pestaña</button></a>
         </div>
         <div class="px-6 py-4">
-            <p *ngIf="!translate" class="text-black text-base my-4">{{image.explanation}}</p>
-            <p *ngIf="translate" class="text-black text-base my-4">{{image.translatedExplanation}}</p>
+            <p class="text-black text-base my-4">{{image.explanation}}</p>
             <button (click)="translateExplanation(image.explanation)"
-                class="mt-4 bg-transparent hover:bg-purple-800 text-black-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Traducir</button>
+                class="mt-4 bg-transparent hover:bg-purple-800 text-black-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">{{
+                translate ? 'Traducir al inglés' : 'Traducir al español' }}</button>
         </div>
         <div class="px-6 pt-4 pb-2">
             <span
